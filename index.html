@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faizan Tariq · Portfolio</title>
+  <meta name="description" content=" Faizan Tariq — Industrial Engineer focused on supply chain, operations research, and data-driven optimization." />
+  <meta property="og:title" content="Faizan Tariq · Portfolio" />
+  <meta property="og:description" content=" Faizan Tariq Industrial Engineer · Supply Chain Strategist · Data-Driven Leader" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root{
+      --bg:#04060a;            /* darker base */
+      --panel:#0a0f18;         /* deep panel */
+      --panel-2:#0d1523;       /* hover panel */
+      --line: rgba(255,255,255,.10);
+      --muted: #97a7bf;
+      --brand:#14b8a6;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif}
+
+    /* Dark, professional backdrop (animated gradient mesh) */
+    .mesh-bg:before{
+      content:"";position:fixed;inset:-20%;z-index:-1;filter:blur(100px);opacity:.18;
+      background:
+        radial-gradient(60rem 40rem at 10% 10%,#0b6b84 12%,transparent),
+        radial-gradient(40rem 30rem at 85% 20%,#17306b 10%,transparent),
+        radial-gradient(50rem 40rem at 30% 90%,#3e157c 10%,transparent),
+        radial-gradient(40rem 30rem at 80% 80%,#0a3f60 10%,transparent);
+      animation: float 18s ease-in-out infinite alternate;
+    }
+    @keyframes float{to{transform:translateY(-40px) translateX(30px) scale(1.05)}}
+
+    /* Cards & polish */
+    .card{background:linear-gradient(180deg,var(--panel),var(--panel-2)); border:1px solid var(--line); border-radius:1rem}
+    .hover-glow{transition:box-shadow .3s, transform .3s}
+    .hover-glow:hover{box-shadow:0 10px 40px rgba(20,184,166,.12),0 0 0 1px rgba(20,184,166,.20); transform:translateY(-2px)}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+    .nav-link.active{color:var(--brand)}
+    .nav-link{position:relative}
+    .nav-link:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:currentColor;opacity:0;transform:scaleX(.5);transition:.25s}
+    .nav-link:hover:after,.nav-link.active:after{opacity:.8;transform:scaleX(1)}
+
+    /* SPA routing */
+    main>section{display:none; opacity:0}
+    main>section.active{display:block}
+
+    /* Subtle page flash on route change */
+    #pageFx{position:fixed;inset:0;pointer-events:none;background:
+      radial-gradient(900px 700px at 50% 100%, rgba(20,184,166,.10), transparent 60%);
+      opacity:0; transition:opacity .35s}
+
+    /* Table polish */
+    table{border-collapse:separate;border-spacing:0}
+    thead th{position:sticky; top:0; backdrop-filter:saturate(1.1) blur(2px)}
+  </style>
+</head>
+<body class="mesh-bg bg-[var(--bg)] text-white">
+  <div id="pageFx"></div>
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full bg-black/85 backdrop-blur z-50 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <a href="#/home" class="font-extrabold tracking-wide text-xl">FAIZAN<span class="text-teal-400">·</span>TARIQ</a>
+        <ul class="hidden md:flex items-center gap-6 text-[13px] uppercase tracking-wider font-semibold">
+          <li><a href="#/home" class="nav-link hover:text-teal-400">Home</a></li>
+          <li><a href="#/summary" class="nav-link hover:text-teal-400">Profile</a></li>
+          <li><a href="#/education" class="nav-link hover:text-teal-400">Education</a></li>
+          <li><a href="#/experience" class="nav-link hover:text-teal-400">Experience</a></li>
+          <li><a href="#/projects" class="nav-link hover:text-teal-400">Projects</a></li>
+          <li><a href="#/skills" class="nav-link hover:text-teal-400">Expertise</a></li>
+          <li><a href="#/leadership" class="nav-link hover:text-teal-400">Leadership</a></li>
+          <li><a href="#/contact" class="nav-link hover:text-teal-400">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 md:pt-28">
+    <!-- HOME -->
+    <section id="home" data-route="home" class="active">
+      <header class="pb-10 md:pb-14">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+          <h1 class="text-5xl md:text-7xl font-extrabold leading-tight" data-aos="zoom-in">Faizan Tariq</h1>
+          <p class="mt-4 text-xl md:text-2xl text-teal-300" data-aos="fade-up">Industrial Engineer · Supply Chain Strategist · Data-Driven Leader</p>
+          <div class="mt-6 flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="150">
+            <a href="mailto:ftariq377@gmail.com" class="hover-glow inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2 font-semibold"><i class="fas fa-envelope"></i>Email</a>
+            <a href="https://www.linkedin.com/in/faizan-tariq-59b028254/" target="_blank" class="hover-glow inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 font-semibold"><i class="fab fa-linkedin"></i>LinkedIn</a>
+            <a href="FaizanTariq_CV.pdf" class="hover-glow inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2 font-semibold border border-white/10"><i class="fas fa-file-download"></i>Download CV</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Professional Summary -->
+      <section class="py-12 border-t border-white/10">
+        <div class="max-w-5xl mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-teal-400 text-center" data-aos="fade-up">Professional Summary</h2>
+          <p class="mt-6 text-lg leading-relaxed text-center text-slate-200" data-aos="fade-up" data-aos-delay="150">
+            Industrial Engineer with end-to-end experience in <span class="font-semibold text-teal-300">ERP implementations (ERPNext, Odoo)</span>, workflow
+            automation (n8n + Python), cross-border logistics, and analytics-driven process optimization. I turn quantitative models into measurable outcomes and ship scalable systems with clear KPIs.
+          </p>
+        </div>
+      </section>
+
+      <div class="max-w-7xl mx-auto px-6 pb-16 flex justify-end">
+        <a href="#/summary" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-500 font-semibold hover-glow" aria-label="Next page: Profile">
+          Next: Profile <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="summary" data-route="summary">
+      <div class="py-16">
+        <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-teal-400 text-center" data-aos="fade-up">Profile</h2>
+          <div class="mt-8 grid lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 card p-6 hover-glow" data-aos="fade-up">
+              <h3 class="text-xl font-semibold mb-3">What I Do</h3>
+              <p class="text-slate-200 leading-relaxed">
+                I design, implement, and improve operational systems—combining ERP rollouts, automation, and clear SOPs—to reduce cycle time,
+                improve delivery performance, and increase visibility. I turn ambiguity into structured roadmaps with measurable KPIs.
+              </p>
+            </div>
+            <div class="card p-6 hover-glow" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-xl font-semibold mb-3">Focus Areas</h3>
+              <ul class="text-slate-200 text-sm space-y-2 list-disc list-inside">
+                <li>Supply Chain & Operations Optimization</li>
+                <li>ERP Implementation & Process Mapping</li>
+                <li>Automation (n8n, Python) & Reporting</li>
+                <li>Data Analysis, Simulation, and Forecasting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 pb-16 flex justify-between">
+        <a href="#/home" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-slate-900 hover:bg-slate-800 font-semibold hover-glow" aria-label="Previous page: Home"><i class="fas fa-arrow-left"></i> Home</a>
+        <a href="#/education" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-500 font-semibold hover-glow" aria-label="Next page: Education">Next: Education <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" data-route="education">
+      <div class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-teal-400 text-center" data-aos="fade-up">Education</h2>
+          <div class="mt-10 overflow-x-auto" data-aos="fade-up" data-aos-delay="150">
+            <table class="min-w-full text-left text-slate-200 border border-white/10">
+              <thead class="bg-slate-900/80 text-teal-300 uppercase text-sm">
+                <tr>
+                  <th class="px-4 py-3">Degree</th>
+                  <th class="px-4 py-3">Institution</th>
+                  <th class="px-4 py-3">Timeline</th>
+                  <th class="px-4 py-3">Key Courses</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-white/10 hover:bg-white/5">
+                  <td class="px-4 py-3 font-semibold">B.Sc. in Industrial Engineering</td>
+                  <td class="px-4 py-3">Ozyegin University, Istanbul, Türkiye</td>
+                  <td class="px-4 py-3">Feb 2020 – Jun 2024</td>
+                  <td class="px-4 py-3 text-sm leading-relaxed">Operations Research I & II, Differential Equations, Applied Statistics, Probability, Discrete Mathematics, Engineering Economy, Programming in OR, Production System Analysis, Quantitative Finance, Simulation Modelling & Analysis, Mathematical Modelling (Exact & Heuristic), Supply Chain Management, Project Management, Scheduling, Blockchain in Finance, Risk Management, Senior Project I & II</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 pb-16 flex justify-between">
+        <a href="#/summary" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-slate-900 hover:bg-slate-800 font-semibold hover-glow" aria-label="Previous page: Profile"><i class="fas fa-arrow-left"></i> Profile</a>
+        <a href="#/experience" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-500 font-semibold hover-glow" aria-label="Next page: Experience">Next: Experience <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" data-route="experience">
+      <div class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-teal-400 text-center" data-aos="fade-up">Experience</h2>
+
+        <!-- Summary table -->
+        <div class="mt-10 overflow-x-auto" data-aos="fade-up" data-aos-delay="100">
+          <table class="min-w-full text-left text-slate-200 border border-white/10">
+            <thead class="bg-slate-900/80 text-teal-300 uppercase text-xs">
+              <tr>
+                <th class="px-4 py-3">Company</th>
+                <th class="px-4 py-3">Role</th>
+                <th class="px-4 py-3">Period</th>
+                <th class="px-4 py-3">Scope</th>
+                <th class="px-4 py-3">Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-white/10 hover:bg-white/5">
+                <td class="px-4 py-3">OneScreen</td>
+                <td class="px-4 py-3">Supply Chain Analyst</td>
+                <td class="px-4 py-3">Jun 2025 – Present</td>
+                <td class="px-4 py-3 text-sm">ERP (ERPNext/Odoo), logistics, workflow automation</td>
+                <td class="px-4 py-3 text-sm">OTD 95%; −40% cycle time; +25% supplier performance; +25% conversion</td>
+              </tr>
+              <tr class="border-t border-white/10 hover:bg-white/5">
+                <td class="px-4 py-3">SkilledForce</td>
+                <td class="px-4 py-3">Operations Lead</td>
+                <td class="px-4 py-3">Dec 2024 – Aug 2025</td>
+                <td class="px-4 py-3 text-sm">Ops launch, KPIs, reporting, cost control, customer success</td>
+                <td class="px-4 py-3 text-sm">+32% productivity; +20% efficiency; −15% cost; +22% CSAT</td>
+              </tr>
+              <tr class="border-t border-white/10 hover:bg-white/5">
+                <td class="px-4 py-3">Facto Investments</td>
+                <td class="px-4 py-3">Investments Associate</td>
+                <td class="px-4 py-3">May 2024 – Aug 2024</td>
+                <td class="px-4 py-3 text-sm">Portfolio mgmt., CRM, reporting, market research</td>
+                <td class="px-4 py-3 text-sm">+25% retention; +15% portfolio value; +20% team productivity</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-2 gap-8">
+          <article class="card p-6 hover-glow" data-aos="fade-up">
+            <header class="flex items-start gap-3">
+              <i class="fas fa-shipping-fast text-teal-400 text-2xl"></i>
+              <div>
+                <h3 class="text-2xl font-semibold">Supply Chain Analyst · OneScreen</h3>
+                <p class="text-sm text-slate-300">Jun 2025 – Present</p>
+              </div>
+            </header>
+            <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-slate-200">
+              <li>Implemented <strong>ERPNext</strong> & <strong>Odoo</strong> across regions (configuration, migration, mapping, testing, rollout).</li>
+              <li>Built <strong>n8n + Python</strong> approval workflow; reduced cycle time by <strong>40%</strong> with improved compliance tracking.</li>
+              <li>Coordinated multi-region logistics & vendors; achieved <strong>95% OTD</strong> and <strong>+25% supplier performance</strong>.</li>
+              <li>Developed <strong>Shopify</strong> catalogs; lifted conversions and team productivity by <strong>25%</strong>.</li>
+            </ul>
+          </article>
+
+          <article class="card p-6 hover-glow" data-aos="fade-up" data-aos-delay="100">
+            <header class="flex items-start gap-3">
+              <i class="fas fa-cogs text-teal-400 text-2xl"></i>
+              <div>
+                <h3 class="text-2xl font-semibold">Operations Lead · SkilledForce</h3>
+                <p class="text-sm text-slate-300">Dec 2024 – Aug 2025</p>
+              </div>
+            </header>
+            <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-slate-200">
+              <li>Launched a new branch; drove <strong>+32% productivity</strong> via optimized processes & systems (GoHighLevel, Hubstaff).</li>
+              <li>Implemented KPI frameworks & weekly reporting; lifted inter-department efficiency by <strong>20%</strong>.</li>
+              <li>Designed cost-control measures; optimized expenses by <strong>15%</strong>.</li>
+              <li>Directed customer success; improved satisfaction by <strong>22%</strong> and retention.</li>
+              <li>Established disaster-management strategies ensuring continuity.</li>
+            </ul>
+          </article>
+
+          <article class="card p-6 hover-glow md:col-span-2" data-aos="fade-up" data-aos-delay="150">
+            <header class="flex items-start gap-3">
+              <i class="fas fa-chart-line text-teal-400 text-2xl"></i>
+              <div>
+                <h3 class="text-2xl font-semibold">Investments Associate · Facto Investments</h3>
+                <p class="text-sm text-slate-300">May 2024 – Aug 2024</p>
+              </div>
+            </header>
+            <ul class="mt-4 list-disc list-inside grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-slate-200">
+              <li>Delivered tailored solutions; improved retention by <strong>25%</strong> and portfolio value by <strong>15%</strong>.</li>
+              <li>Managed portfolios; produced actionable reports for strategic decisions.</li>
+              <li>Conducted market analysis to identify trends & opportunities.</li>
+              <li>Implemented CRM/process improvements; boosted team productivity by <strong>20%</strong>.</li>
+              <li>Enhanced reporting & data organization; accelerated analysis & accuracy.</li>
+            </ul>
+          </article>
+        </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 pb-16 flex justify-between">
+        <a href="#/education" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-slate-900 hover:bg-slate-800 font-semibold hover-glow" aria-label="Previous page: Education"><i class="fas fa-arrow-left"></i> Education</a>
+        <a href="#/projects" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-500 font-semibold hover-glow" aria-label="Next page: Projects">Next: Projects <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" data-route="projects">
+      <div class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-teal-400 text-center" data-aos="fade-up">Highlighted Projects</h2>
+          <div class="mt-12 grid md:grid-cols-2 gap-8">
+            <article class="card p-6 hover-glow" data-aos="fade-right">
+              <header class="flex items-center gap-3">
+                <i class="fas fa-database text-teal-400 text-2xl"></i>
+                <h3 class="text-2xl font-semibold">Operational Systems Optimization · Fibabanka</h3>
+              </header>
+              <ul class="mt-3 list-disc list-inside space-y-2 text-sm text-slate-200">
+                <li>Excel Solver & genetic algorithms for server capacity optimization.</li>
+                <li>Arena simulations to evaluate and improve throughput/reliability.</li>
+                <li>Java-based heuristics to streamline processes and increase speed.</li>
+                <li>Data-driven recommendations for long-term efficiency improvements.</li>
+              </ul>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a href="docs/IE402_group12_final.pdf" class="badge hover-glow" target="_blank" rel="noopener"><i class="fas fa-file-pdf text-teal-400"></i><span>Project PDF</span></a>
+              </div>
+            </article>
+            <article class="card p-6 hover-glow" data-aos="fade-left" data-aos-delay="100">
+              <header class="flex items-center gap-3">
+                <i class="fas fa-business-time text-teal-400 text-2xl"></i>
+                <h3 class="text-2xl font-semibold">Business Analyst Internship · The Phoenix Practice</h3>
+              </header>
+              <ul class="mt-3 list-disc list-inside space-y-2 text-sm text-slate-200">
+                <li>Improved data accuracy by <strong>3%</strong> through cleansing/validation.</li>
+                <li>Budget analysis and cost reduction of <strong>6%</strong>.</li>
+                <li>Python-based analytical models for decision support (+2%).</li>
+                <li>Process optimization and resource allocation initiatives.</li>
+                <li>Prepared stakeholder reports & presentations.</li>
+              </ul>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a href="docs/IE400_internship2_report.pdf" class="badge hover-glow" target="_blank" rel="noopener"><i class="fas fa-file-pdf text-teal-400"></i><span>Internship Report</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 pb-16 flex justify-between">
+        <a href="#/experience" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-slate-900 hover:bg-slate-800 font-semibold hover-glow" aria-label="Previous page: Experience"><i class="fas fa-arrow-left"></i> Experience</a>
+        <a href="#/skills" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-500 font-semibold hover-glow" aria-label="Next page: Expertise">Next: Expertise <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" data-route="skills">
+      <div class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-teal-400 text-center" data-aos="fade-up">Technical Expertise & Core Competencies</h2>
+          <div class="mt-12 grid lg:grid-cols-5 gap-6">
+            <div class="lg:col-span-3" data-aos="fade-up">
+              <div class="overflow-x-auto">
+                <table class="min-w-full text-left text-slate-200 border border-white/10">
+                  <thead class="bg-slate-900/80 text-teal-300 uppercase text-xs">
+                    <tr>
+                      <th class="px-4 py-3">Category</th>
+                      <th class="px-4 py-3">Tools / Tech</th>
+                      <th class="px-4 py-3">Proficiency</th>
+                      <th class="px-4 py-3">Use-Cases</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-white/10 hover:bg-white/5">
+                      <td class="px-4 py-3"><i class="fas fa-code"></i> Analytics</td>
+                      <td class="px-4 py-3">Python, Advanced Excel</td>
+                      <td class="px-4 py-3">Advanced</td>
+                      <td class="px-4 py-3 text-sm">Automation, reporting, decision models</td>
+                    </tr>
+                    <tr class="border-t border-white/10 hover:bg-white/5">
+                      <td class="px-4 py-3"><i class="fas fa-industry"></i> Simulation & PM</td>
+                      <td class="px-4 py-3">Arena Simulation, AutoCAD, MS Project</td>
+                      <td class="px-4 py-3">Proficient</td>
+                      <td class="px-4 py-3 text-sm">Throughput modeling, scheduling</td>
+                    </tr>
+                    <tr class="border-t border-white/10 hover:bg-white/5">
+                      <td class="px-4 py-3"><i class="fas fa-laptop"></i> ERP</td>
+                      <td class="px-4 py-3">ERPNext, Odoo</td>
+                      <td class="px-4 py-3">Proficient</td>
+                      <td class="px-4 py-3 text-sm">Process mapping, rollout</td>
+                    </tr>
+                    <tr class="border-t border-white/10 hover:bg-white/5">
+                      <td class="px-4 py-3"><i class="fas fa-robot"></i> Automation</td>
+                      <td class="px-4 py-3">n8n, ChatGPT</td>
+                      <td class="px-4 py-3">Proficient</td>
+                      <td class="px-4 py-3 text-sm">Workflows, approvals, productivity</td>
+                    </tr>
+                    <tr class="border-t border-white/10 hover:bg-white/5">
+                      <td class="px-4 py-3"><i class="fas fa-shopping-cart"></i> Commerce</td>
+                      <td class="px-4 py-3">Shopify</td>
+                      <td class="px-4 py-3">Proficient</td>
+                      <td class="px-4 py-3 text-sm">Catalogs, digital channels</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="lg:col-span-2">
+              <div class="card p-6" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-xl font-semibold mb-4"><i class="fas fa-check-circle text-teal-400"></i> Core Competencies</h3>
+                <div class="flex flex-wrap gap-2 text-sm">
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Operations Coordination</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Financial & Data Analysis</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Process Optimization</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Cross-Functional Leadership</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">KPI Development & Monitoring</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Budget Management</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Resource Allocation</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Crisis Management</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Project Management</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Supply Chain Management</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Client Relationship Management</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Cost-Reduction Strategies</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Risk Assessment & Mitigation</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-900 border border-white/10">Digital Marketing & SEO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 pb-16 flex justify-between">
+        <a href="#/projects" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-slate-900 hover:bg-slate-800 font-semibold hover-glow" aria-label="Previous page: Projects"><i class="fas fa-arrow-left"></i> Projects</a>
+        <a href="#/leadership" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-500 font-semibold hover-glow" aria-label="Next page: Leadership">Next: Leadership <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership" data-route="leadership">
+      <div class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-teal-400 text-center" data-aos="fade-up">Leadership & Extracurriculars</h2>
+          <div class="mt-10 card p-6 max-w-4xl mx-auto hover-glow" data-aos="fade-up">
+            <h3 class="text-2xl font-semibold"><i class="fas fa-bullhorn text-teal-400"></i> Marketing Coordinator · Ozyegin University</h3>
+            <p class="text-sm text-slate-300">Feb 2021 – Jan 2022</p>
+            <ul class="mt-3 list-disc list-inside space-y-2 text-sm text-slate-200">
+              <li>Increased event attendance by <strong>20%</strong> through targeted advertising, SEO, and digital campaigns.</li>
+              <li>Expanded audience reach via web initiatives; secured sponsorships & partnerships.</li>
+              <li>Designed marketing collateral to drive engagement and participation.</li>
+            </ul>
+          </div>
+          <p class="text-center mt-6 text-slate-400 text-sm">Referees available upon request.</p>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 pb-16 flex justify-between">
+        <a href="#/skills" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-slate-900 hover:bg-slate-800 font-semibold hover-glow" aria-label="Previous page: Expertise"><i class="fas fa-arrow-left"></i> Expertise</a>
+        <a href="#/contact" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-teal-600 hover:bg-teal-500 font-semibold hover-glow" aria-label="Next page: Contact">Next: Contact <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-route="contact">
+      <div class="py-16">
+        <div class="max-w-3xl mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-teal-400 text-center" data-aos="fade-up">Get in Touch</h2>
+          <p class="text-center text-slate-300 mt-3" data-aos="fade-up" data-aos-delay="50">I typically respond within 1–2 business days.</p>
+          <form class="space-y-4 mt-10 max-w-2xl mx-auto" action="mailto:ftariq377@gmail.com" method="POST" enctype="text/plain" data-aos="fade-up" data-aos-delay="100">
+            <label class="block">
+              <span class="text-sm text-slate-300">Your Name</span>
+              <input name="Name" type="text" required placeholder="e.g., Jane Doe" class="mt-1 w-full p-3 rounded-lg bg-slate-900 border border-white/10 focus:outline-none" />
+            </label>
+            <label class="block">
+              <span class="text-sm text-slate-300">Your Email</span>
+              <input name="Email" type="email" required placeholder="you@example.com" class="mt-1 w-full p-3 rounded-lg bg-slate-900 border border-white/10 focus:outline-none" />
+            </label>
+            <label class="block">
+              <span class="text-sm text-slate-300">Your Message</span>
+              <textarea name="Message" rows="6" required placeholder="Write your message..." class="mt-1 w-full p-3 rounded-lg bg-slate-900 border border-white/10 focus:outline-none"></textarea>
+            </label>
+            <button class="px-6 py-3 bg-teal-600 rounded-lg hover:bg-teal-500 transition w-full font-bold"><i class="fas fa-paper-plane"></i> Send</button>
+            <p class="text-xs text-slate-400">Note: This form opens your email client to send the message directly to me. For a backend submission, replace the <code>action</code> with a form endpoint (e.g., Formspree).</p>
+          </form>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 pb-16 flex justify-start">
+        <a href="#/home" class="group inline-flex items-center gap-3 px-5 py-3 rounded-full bg-slate-900 hover:bg-slate-800 font-semibold hover-glow" aria-label="Back to Home"><i class="fas fa-arrow-left"></i> Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 text-center text-slate-300 border-t border-white/10 bg-black/80">
+    <p>© 2025 Faizan Tariq — Designed with Tailwind, AOS & GSAP</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true });
+
+    // SPA router with transitions (fix: use 'auto' instead of non-standard 'instant')
+    const routes = new Map();
+    document.querySelectorAll('main>section').forEach(sec => routes.set(sec.dataset.route, sec));
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pageFx = document.getElementById('pageFx');
+
+    function setActive(route){
+      routes.forEach((el,key)=>{
+        const makeActive = key===route;
+        if(makeActive){ el.classList.add('active'); } else { el.classList.remove('active'); }
+        gsap.killTweensOf(el);
+        if(makeActive){
+          el.style.opacity = 0;
+          gsap.to(el,{opacity:1, duration:.5, ease:'power2.out'});
+        }
+      });
+      navLinks.forEach(l=>{
+        const r = (l.getAttribute('href')||'').replace('#/','');
+        l.classList.toggle('active', r===route);
+      });
+      // subtle page flash
+      pageFx.style.opacity = 1; setTimeout(()=>pageFx.style.opacity=0, 280);
+      window.scrollTo({top:0, behavior:'auto'});
+    }
+
+    function handleRoute(){
+      const route = (location.hash || '#/home').replace('#/','');
+      setActive(routes.has(route)?route:'home');
+    }
+
+    window.addEventListener('hashchange', handleRoute);
+    // initial render
+    handleRoute();
+
+    // Hero entrance
+    gsap.from('h1', {y:20, opacity:0, duration:.6, ease:'power2.out'});
+    gsap.from('header .inline-flex', {y:16, opacity:0, duration:.6, delay:.2, stagger:.08});
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Faizan Tariq",
+    "jobTitle": "Industrial Engineer",
+    "telephone": "+92 333 5566750",
+    "email": "mailto:ftariq377@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/faizan-tariq-59b028254/"
+    ]
+  }
+  </script>
+</body>
+</html>
